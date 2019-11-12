@@ -9,8 +9,18 @@ $user = $collection->findOne($query);
 <link rel="stylesheet" href="http://localhost/practice/project/css/facultypage.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<nav class="navbar navbar-light bg-dark">
-	<a class="navbar-brand" href="#" color="white">Profile</a>
+<style>
+    .navbar {
+    max-height: 60px;
+	background-color: #008B8B;
+	color: white;
+	font-family:    Serif, Arial, Helvetica, sans-serif;
+	font-size:      30px;
+  }
+</style>
+
+<nav class="navbar">
+	<a>Profile</a>
 	<form class="form-inline my-1">
 		<button class="btn btn-outline-white btn-sm my-0 pull-right" type="button" id="toggle-login-logout" value="1">Logout</button>
 	</form>
@@ -98,7 +108,7 @@ $user = $collection->findOne($query);
 		if ($("#toggle-login-logout").val() == "1") 
 		{
 			$("#toggle-login-logout").val('0');
-			alert('dfjsdfjsdf');
+			alert('Logged out');
 			$.ajax({
 				type: "POST",
 				url: "actions.php?action=unset",
@@ -109,10 +119,7 @@ $user = $collection->findOne($query);
 				}
 			});
 		} 
-		else 
-		{
-			window.location.href = "http://localhost/practice/project/login.php";
-		}
+		window.location.href = "http://localhost/practice/project/index.php";
 	})
 </script>
 </body>

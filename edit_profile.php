@@ -10,14 +10,22 @@ $user = $collection->findOne($qry);
 ?>
 
 
-<nav class="navbar navbar-light bg-dark">
-  <a class="navbar-brand" href="#" color="white">Profile</a>
-  <form class="form-inline my-1">
-    <button class="btn btn-outline-white btn-sm my-0 pull-right" type="button" id="logout" value="1">Logout </button>
-  </form>
-</nav>
+<style>
+    .navbar {
+    max-height: 60px;
+	background-color: #008B8B;
+	color: white;
+	font-family:    Serif, Arial, Helvetica, sans-serif;
+	font-size:      30px;
+  }
+</style>
 
-<!------ Include the above in your HEAD tag ---------->
+<nav class="navbar">
+	<a>Profile</a>
+	<form class="form-inline my-1">
+		<button class="btn btn-outline-white btn-sm my-0 pull-right" type="button" id="toggle-login-logout" value="1">Logout</button>
+	</form>
+</nav>
 
 <div class="container edit" padding-top="50px">
   <div class="form-group shadow-textarea">
@@ -92,11 +100,8 @@ $user = $collection->findOne($qry);
     });
   });
 </script>
-<!-- First include jquery js -->
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-<!-- Then include bootstrap js -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>

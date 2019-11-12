@@ -123,7 +123,7 @@
                 data: "email=" + $("#loginemail").val() + "&password=" + $("#loginpassword").val(),
                 success: function(result) {
                     if (result == 1) {
-                        window.location.assign("http://localhost/practice/project/edit_profile.php");
+                        window.location.assign("http://localhost/practice/project/Faculty/LeaveManagementFaculty.php");
                     } else {
                         $(".loginAlert").html(result).show();
                     }
@@ -138,7 +138,7 @@
                     $("#username").val() + "&department=" + $("#department").val() ,
                 success: function(result) {
                     if (result == 1) {
-                        window.location.assign("http://localhost/practice/project/edit_profile.php");
+                        window.location.assign("http://localhost/practice/project/Faculty/LeaveManagementFaculty.php");
                         alert("every thing is fine");
                     } else {
                         $(".loginAlert").html(result).show();

@@ -1,9 +1,10 @@
 #primaryContent1 {
 	
-	float: left;
-	margin-right: 5px;
+    float: center;
+    margin-right: 50px;
+    margin-left: 50px;
 	padding-bottom: 40px;
-        font-size:14px;
+    font-size:14px;
         
 }
 #primaryContent1 p {
@@ -11,7 +12,7 @@
 }
 
 #primaryContent1 b a{
-	 color: #006699;
+	 color: #057baa;
 }
 
 #primaryContent1 ul {
@@ -25,7 +26,7 @@
 	margin: 0.8333em 0 0.8333em 0;
 }
 .fac_row{
-     background-color: #ffffff;
+    background-color: #ffffff;
     padding: 18px 18px;
     margin-bottom:25px;
     margin-top:20px;
@@ -37,26 +38,27 @@
     border-radius: 3px;
 }
  #primaryContent1 .fac_row  img {
-        width:88px;
-        height:98px;	
+        width:83px;
+        height:94px;	
 }
 #primaryContent1 .fac_row  p{
   margin-left: 20px;
     margin-top: 0px;
     text-align: left;
 }
+
 #primaryContent1 .fac_row  p strong{
    font-weight:bold !important;
 }
- #primaryContent1 .fac_row  p em {
+ #primaryContent1 .fac_row  p em{
     font-style: normal;
     font-weight: bold;
 }
 .fac_img{
-     width: 100%;
-        max-width: 90px;
+    width: 100%;
+    max-width: 90px;
     height: 100px;
     overflow: hidden;
-   border: 1px solid #ccc;
+    border: 1px solid #ccc;
     padding: 2px;
 }

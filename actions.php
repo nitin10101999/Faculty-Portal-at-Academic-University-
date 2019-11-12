@@ -137,7 +137,7 @@ else if ($_GET["action"] == "CSE" || $_GET["action"] == "EE" || $_GET["action"] 
         $count=1;
         echo '<div class="fac_row">
         <div class="fac_img">
-        <img style="border:1px #e5e5e5 solid;" src="http://cse.iitrpr.ac.in/sites/default/files/abhinav.jpeg">
+        <img src="http://cse.iitrpr.ac.in/sites/default/files/abhinav.jpeg">
         </div>';     
         echo '<p> <a  href="http://localhost/practice/project/view_profile.php?action='.$row['email'].'">
                         <strong>'. $row['username'].'</strong></a>
