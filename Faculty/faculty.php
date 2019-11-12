@@ -43,7 +43,7 @@ include("../tool/functions.php");
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="ApplyLeave" href="#">Apply Leave</a>
+        <a class="nav-link" id="ApplyLeave" href="../apply_leave.php">Apply Leave</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="LeaveRecord" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

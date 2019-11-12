@@ -46,7 +46,7 @@
                     <a class="nav-link" id="MyProfile" href="#">My Profile</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" id="ApplyLeave" href="#">Apply Leave</a>
+                    <a class="nav-link" id="ApplyLeave" href="../apply_leave.php">Apply Leave</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" id="ApplyLeave" href="#">Leave Requests</a>
