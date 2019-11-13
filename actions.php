@@ -21,7 +21,7 @@ if ($_GET["action"] == "login") {
             $query = "SELECT * FROM faculty WHERE email= '$email'";
         } else if ($role == 'hod') {
             $query = "SELECT * FROM hod WHERE email= '$email'";
-        } else if ($role == 'dean') {
+        } else if ($role == 'deanfaa') {
             $query = "SELECT * FROM dean WHERE email= '$email'";
         } else if ($role == 'director') {
             $query = "SELECT * FROM director WHERE email= '$email'";
@@ -32,6 +32,7 @@ if ($_GET["action"] == "login") {
         $row = mysqli_fetch_assoc($res);
         if ($row["password"] == $password) {
             $_SESSION["email"] = $email;
+            $_SESSION["role"] = $role;
             if ($role == 'faculty') {
                 echo 1;
             } else if ($role == 'admin') {
@@ -59,6 +60,7 @@ if ($_GET["action"] == "login") {
     }
     echo $_SESSION["email"];
 } else if ($_GET['action'] == "unset") {
+    unset($_SESSION['role']);
     unset($_SESSION['email']);
     echo 1;
 } else if ($_GET["action"] == "CSE" || $_GET["action"] == "EE" || $_GET["action"] == "ME") {

@@ -8,10 +8,10 @@ if(!isset($_SESSION['email'])){
 	$query = "SELECT * FROM hod WHERE email= '$mailid'";
 	$res = mysqli_query($mySql_db, $query);
 	$query1 = "SELECT * FROM dean WHERE email= '$mailid'";
-	$res1 = mysqli_query($mySql_db, $query);
+	$res1 = mysqli_query($mySql_db, $query1);
 	$query2 = "SELECT * FROM director WHERE email= '$mailid'";
-	$res2 = mysqli_query($mySql_db, $query);
-	if (mysqli_num_rows($res)==0 || mysqli_num_rows($res1)==0 || mysqli_num_rows($res2)==0) {
+	$res2 = mysqli_query($mySql_db, $query2);
+	if (mysqli_num_rows($res)==0 && mysqli_num_rows($res1)==0 && mysqli_num_rows($res2)==0) {
 		header("Location: ../check.php");
 	}
 }
@@ -75,6 +75,7 @@ if(!isset($_SESSION['email'])){
 
 
 <script type="text/javascript"> 	
+	
 	$(document).ready(function(){
 		$("#logout").click(function() {
 		$.ajax({
