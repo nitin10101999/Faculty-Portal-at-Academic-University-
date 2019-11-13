@@ -1,6 +1,9 @@
 <?php
 include("../tool/header.php");
 include("../tool/functions.php");
+if(!isset($_SESSION['email'])){
+  header("Location: ../check.php");
+}
 ?>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -47,13 +47,13 @@ include("tool/header.php");
 
 <script type="text/javascript">
 	$("#CSE").click(function() {
-				 window.location.href = "http://localhost/practice/project/facultycse.php";
+				 window.location.href = "http://localhost/practice/project/Profiles/facultycse.php";
 				})
 	$("#EE").click(function() {
-				 window.location.href = "http://localhost/practice/project/facultyee.php";
+				 window.location.href = "http://localhost/practice/project/Profiles/facultyee.php";
 				})
 	$("#ME").click(function() {
-				 window.location.href = "http://localhost/practice/project/facultyme.php";
+				 window.location.href = "http://localhost/practice/project/Profiles/facultyme.php";
 				})
 </script>
 
