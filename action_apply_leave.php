@@ -40,6 +40,15 @@
     if ($error == "") {
         $sql = "INSERT INTO leaveapplication(Ltype, startDate,endDate,Fid) VALUES('$leaveType','$fromDate','$toDate','$fid')";
         mysqli_query($mySql_db, $sql);
+        $sq11 = "SELECT * FROM leaverecord WHERE Fid='$fid'";
+        $r11 = mysqli_query($mySql_db, $sq11);
+        if(mysqli_num_rows($r11)==0){
+            $sq12 = "INSERT INTO leaverecord(leavesAvailable,CurrentStatus,Fid) VALUES('20','applied','$fid')";
+            mysqli_query($mySql_db, $sq12);
+        } else {
+            $sq12 = "UPDATE leaverecord SET CurrentStatus='applied' WHERE Fid='$fid'";
+            mysqli_query($mySql_db, $sq12);
+        }
         echo 1;
 
     }
