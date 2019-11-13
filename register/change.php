@@ -30,7 +30,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-12">
-								<a href="#" class="active" id="register-form-link">Change HOD</a>
+								<a href="#" class="active" id="register-form-link"><?php echo $_GET['action']; ?></a>
 							</div>
 						</div>
 						<hr>
