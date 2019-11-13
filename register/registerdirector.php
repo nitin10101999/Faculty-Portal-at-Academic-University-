@@ -55,7 +55,7 @@
 										<input type="email" id="Fid" tabindex="2" class="form-control" placeholder="Faculty email">
 									</div>
 									<div class="form-group row">
-										<label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Department</label>
+										<label for="department" class="col-sm-2 col-form-label">Department</label>
 										<div class="col-sm-12">
 											<select class="form-control" id="department">
 												<option>cse</option>
@@ -85,7 +85,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="alert alert-danger loginAlert"></div>
+	<div class="alert alert-danger loginAlert" style="display:none;"></div>
 	<script type="text/javascript">
 		$("#register").click(function() {
 			$.ajax({
