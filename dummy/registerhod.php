@@ -87,10 +87,12 @@
 	</div>
 	<div class="alert alert-danger loginAlert" style="display:none;"></div>
 	<script type="text/javascript">
+		var val = "<?php echo $_GET['action']; ?>";
+		alert(val);
 		$("#register").click(function() {
 			$.ajax({
 				type: "POST",
-				url: "actionreg.php?action=registerhod",
+				url: "actionreg.php?action="+val,
 				data: "email=" + $("#email").val() + "&password=" + $("#password").val() + "&confirmpassword=" + $("#confirmpassword").val() + "&username=" +
 					$("#username").val() + "&department=" + $("#department").val()+"&startDate=" + $("#startDate").val() + "&Fid=" + $("#Fid").val(),
 				success: function(result) {
