@@ -1,26 +1,22 @@
 <?php
-    include('../tool/functions.php');
-    include('../tool/header.php');
-    $role = $_SESSION['role'];
-    $Lid = $_GET['action'];
-    $query = "SELECT * FROM leaveapplication WHERE LeaveId='$Lid'";
-    $res = mysqli_query($mySql_db, $query);
-    $row = mysqli_fetch_assoc($res);
-    $Fid_applicant = $row['Fid'];
-    $startDate = $row['startDate'];
-    $endDate = $row['endDate'];
-    $Ltype = $row['Ltype'];
-    $query1 = "SELECT * FROM leaverecord WHERE Fid='$Fid_applicant'";
-    $res1 = mysqli_query($mySql_db, $query1);
-    $row1 = mysqli_fetch_assoc($res1);
-    $Avail_leaves = $row1['leavesAvailable'];
-    $status_current_leave = $row1['CurrentStatus'];
+include('../tool/functions.php');
+include('../tool/header.php');
+$role = $_SESSION['role'];
+$Lid = $_GET['action'];
+$query = "SELECT * FROM leaveapplication WHERE LeaveId='$Lid'";
+$res = mysqli_query($mySql_db, $query);
+$row = mysqli_fetch_assoc($res);
+$Fid_applicant = $row['Fid'];
+$startDate = $row['startDate'];
+$endDate = $row['endDate'];
+$Ltype = $row['Ltype'];
+$query1 = "SELECT * FROM leaverecord WHERE Fid='$Fid_applicant'";
+$res1 = mysqli_query($mySql_db, $query1);
+$row1 = mysqli_fetch_assoc($res1);
+$Avail_leaves = $row1['leavesAvailable'];
+$status_current_leave = $row1['CurrentStatus'];
 ?>
-
-
-<!DOCTYPE html>
-<html>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <body id="hide">
     <div class="container" style="margin-top:50px;">
         <div class="card">
@@ -74,26 +70,43 @@
                         <div class="col-sm-8">
                             <p class="form-control" id="message" rows="5">Message area</p>
                             <textarea class="form-control" id="write_comment" rows="5" placeholder="Write Comment Here..."></textarea>
-                            <button class="btn btn-primary" id="comment" style="margin-top:15px;">Comment</button>
-                            <button class="btn btn-primary" id="approve" style="margin-top:15px;">Approve</button>
+                            <a href='#' class="btn btn-primary" id="comment" style="margin-top:15px;">Comment</a>
+                            <a href="#" class="btn btn-primary" id="approve" style="margin-top:15px;">Approve</a>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <div id="take"></div>
     <script>
         var fid = "<?php echo $Fid_applicant; ?>";
         var startdate = "<?php echo $startDate; ?>";
         var endDate = "<?php echo $endDate; ?>";
         var avail = "<?php echo $Avail_leaves; ?>";
-            $("#comment").click(function() {
-                alert('sdfsdf');
-            })
+        $("#comment").click(function() {
+            //alert('sdfsdf');
+            $("#take").html("<p>waah1 kya baat hai</p>");
+            window.location.href = "../index.php";
+        })
 
-            $("#approve").click(function() {
-                alert('dsfsdfs');
+        $("#approve").click(function() {
+            alert('sffjsdjf');
+            $.ajax({
+                type: "POST",
+                url: "actionccf.php?action=approve",
+                data: "Fid="+ fid + "&startDate=" + startdate + "&endDate=" + endDate + "&avail=" +avail,
+                success: function(result) {
+                    alert(result);
+                   if(result==1){
+                    window.location.href = "ccf.php";
+                   }
+                   else{
+                       alert('contact your papa!');
+                   }
+                }
             });
+        });
     </script>
 </body>
 

@@ -18,7 +18,7 @@ if ($_GET['action'] == 'comment') {
     $query1 = "UPDATE leaverecord SET CurrentStatus = '$Lstatus' WHERE Fid='$Fid_applicant'";
     $res1 = mysqli_query($mySql_db, $query1);
     if ($Lstatus == 'approved') {
-        $sd = strtotime($startDate);
+        $sd = strtotime($startdate);
         $ed = strtotime($endDate);
         $diff = (int)(($ed - $sd) / 60 / 60 / 24);
         $now = $Avail_leaves - $diff;

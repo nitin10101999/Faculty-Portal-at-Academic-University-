@@ -7,6 +7,11 @@ if(!isset($_SESSION['email'])){
 $collection = $database->user;
 $qry = array('email' => $_SESSION["email"]);
 $user = $collection->findOne($qry);
+$biography = $user["biography"];
+$research_area = $user["research_area"];
+$education = $user["education"];
+$experience = $user["experience"];
+$patents = $user["patents"];
 ?>
 
 
@@ -30,31 +35,31 @@ $user = $collection->findOne($qry);
 <div class="container edit" padding-top="50px">
   <div class="form-group shadow-textarea">
     <label for="biography" padding-bottom="0">Biography</label>
-    <textarea class="form-control z-depth-1" value="" id="biography" rows="3" placeholder="Write something here..."></textarea>
+    <textarea class="form-control z-depth-1" value="<?php echo $user['biography']; ?>" id="biography" rows="3" placeholder="Write something here..."><?php echo $user['biography']; ?></textarea>
   </div>
 </div>
 <div class="container edit" padding-top="50px">
   <div class="form-group shadow-textarea">
     <label for="research_area" padding-bottom="0">Areas of Research</label>
-    <textarea class="form-control z-depth-1" value="" id="research_area" rows="3" placeholder="Write something here..."></textarea>
+    <textarea class="form-control z-depth-1" value="<?php echo $user['research_area']; ?>" id="research_area" rows="3" placeholder="Write something here..."><?php echo $user['research_area']; ?></textarea>
   </div>
 </div>
 <div class="container edit" padding-top="50px">
   <div class="form-group shadow-textarea">
     <label for="education" padding-bottom="0">Education</label>
-    <textarea class="form-control z-depth-1" value="" id="education" rows="3" placeholder="Write something here..."></textarea>
+    <textarea class="form-control z-depth-1" value="<?php echo $user['education']; ?>" id="education" rows="3" placeholder="Write something here..."><?php echo $user['education']; ?></textarea>
   </div>
 </div>
 <div class="container edit" padding-top="50px">
   <div class="form-group shadow-textarea">
     <label for="experience" padding-bottom="0">Work Experience</label>
-    <textarea class="form-control z-depth-1" value="" id="experience" rows="3" placeholder="Write something here..."></textarea>
+    <textarea class="form-control z-depth-1" value="<?php echo $user['experience']; ?>" id="experience" rows="3" placeholder="Write something here..."><?php echo $user['experience']; ?></textarea>
   </div>
 </div>
 <div class="container edit" padding-top="50px">
   <div class="form-group shadow-textarea">
     <label for="patents" padding-bottom="0">Selected Publications/Patents</label>
-    <textarea class="form-control z-depth-1" value="" id="patents" rows="3" placeholder="Write something here..."></textarea>
+    <textarea class="form-control z-depth-1" value="<?php echo $user['patents']; ?>" id="patents" rows="3" placeholder="Write something here..."><?php echo $user['patents']; ?></textarea>
   </div>
 </div>
 <div class="container">
@@ -70,11 +75,6 @@ $user = $collection->findOne($qry);
 
 
 <script type="text/javascript">
-  $("#biography").val("<?php echo $user["biography"]; ?>");
-  $("#research_area").val("<?php echo $user["research_area"]; ?>");
-  $("#education").val("<?php echo $user["education"]; ?>");
-  $("#experience").val("<?php echo $user["experience"]; ?>");
-  $("#patents").val("<?php echo $user["patents"]; ?>");
   $(document).ready(function(){
     $("#save").click(function() {
         $.ajax({
