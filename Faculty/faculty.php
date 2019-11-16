@@ -60,7 +60,7 @@ if (!isset($_SESSION['email'])) {
         </a>
         <div class="dropdown-menu" aria-labelledby="LeaveRecord">
           <a class="dropdown-item" href="#">Remaining leaves</a>
-          <a class="dropdown-item" href="#">Current leave status</a>
+          <a class="dropdown-item" id="leaveStatus" href="#">Current leave status</a>
           <a class="dropdown-item" href="#">Past record</a>
         </div>
       </li>
@@ -70,6 +70,7 @@ if (!isset($_SESSION['email'])) {
     </form>
   </div>
 </nav>
+<div id="change"></div>
 <script type="text/javascript">
   var val = "<?php echo $_SESSION['email']; ?>";
   $("#ViewProfile").click(function() {
@@ -91,6 +92,17 @@ if (!isset($_SESSION['email'])) {
           } else {
             alert("contact kml");
           }
+        }
+      });
+    });
+    $("#leaveStatus").click(function() {
+      $.ajax({
+        type: "POST",
+        url: "../leaveStatus.php",
+        data: "random",
+        success: function(result) {
+          alert(result);
+          $("#change").html(result);
         }
       });
     });

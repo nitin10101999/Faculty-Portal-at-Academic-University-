@@ -12,8 +12,11 @@ if (!isset($_SESSION['email'])) {
 		header("Location: check.php");
 	}
 }
-
 ?>
+
+<link rel="stylesheet" href="css/facultypage.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
@@ -55,6 +58,14 @@ if (!isset($_SESSION['email'])) {
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="hod" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Associate Dean</a>
+				<div class="dropdown-menu" aria-labelledby="hod">
+					<a class="dropdown-item" id="addassociatedean" href="register/register.php?action=registerassociatedean">Add</a>
+					<a class="dropdown-item" id="editassociatedean" href="register/change.php?action=changeassociatedean">Edit</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="hod" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Dean</a>
 				<div class="dropdown-menu" aria-labelledby="hod">
 					<a class="dropdown-item" id="adddean" href="register/register.php?action=registerdean">Add</a>
@@ -76,8 +87,8 @@ if (!isset($_SESSION['email'])) {
 				<a class="nav-link dropdown-toggle" href="#" id="hierarchy" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Hierarchy</a>
 				<div class="dropdown-menu" aria-labelledby="hod">
-					<a class="dropdown-item" id="showhierarchy">Show</a>
-					<a class="dropdown-item" id="changehierarchy" href="#">Change</a>
+					<a class="dropdown-item" id="showhierarchy" href="#">Show</a>
+					<a class="dropdown-item" id="changehierarchy" href="changehierarchy.php">Change</a>
 				</div>
 			</li>
 		</ul>
@@ -89,6 +100,7 @@ if (!isset($_SESSION['email'])) {
 <div id="reg"></div>
 
 <div id="hierarchyshow"></div>
+<div id="hierarchychange"></div>
 
 <script type="text/javascript">
 	alert("<?php echo $_SESSION['email']; ?>");
@@ -119,6 +131,9 @@ if (!isset($_SESSION['email'])) {
 			})
 
 		});
+
+		
+		
 	});
 </script>
 
