@@ -45,6 +45,16 @@ if ($_GET["action"] == "registerfaculty") {
                 $collection = $database->user;
                 $user = array('email' => $email, 'biography' => " ", 'research_area' => " ", 'education' => " ", 'experience' => " ", 'patents' => " ");
                 $collection->save($user);
+
+                ///mongo for ApproveRequest 
+                $collection = $database->ApproveRequest;
+                $query = array('email' => $email);
+                $leave_obj = $collection->findOne($query);
+                if (empty($leave_obj) || $leave_obj == null) {
+                    $ApproveRequest = array("email" => $email, "Approve" => array());
+                    $collection->save($ApproveRequest);
+                }
+                ///mongo end here
             } else {
                 $error =  "Could not create user - Please try again later.";
             }
@@ -105,6 +115,16 @@ if ($_GET["action"] == "registerfaculty") {
             $sq11 = "INSERT INTO faculty(email, password,username,department,role,startDate) VALUES('$Fid','$pass','$fname','$department','faculty','$startDate')";
             mysqli_query($mySql_db, $sq11);
         }
+        ///mongo for ApproveRequest 
+        $collection = $database->ApproveRequest;
+        $query = array('email' => $Fid);
+        $leave_obj = $collection->findOne($query);
+        if (empty($leave_obj) || $leave_obj == null) {
+            $ApproveRequest = array("email" => $Fid, "Approve" => array());
+            $collection->save($ApproveRequest);
+        }
+        ///mongo end here
+
         $pass = md5($password); ////changed
         if ($_GET["action"] == "registerhod") {
             $sql = "INSERT INTO hod(email, password,username,department,startDate,Fid) VALUES('$email','$pass','$fname','$department','$startDate','$Fid')";
@@ -228,6 +248,15 @@ if ($_GET["action"] == "registerfaculty") {
             $donot4 = mysqli_query($mySql_db, $sq4);
         }
         if (mysqli_query($mySql_db, $sq2)) {
+            ///mongo for ApproveRequest 
+            $collection = $database->ApproveRequest;
+            $query = array('email' => $Fid);
+            $leave_obj = $collection->findOne($query);
+            if (empty($leave_obj) || $leave_obj == null) {
+                $ApproveRequest = array("email" => $Fid, "Approve" => array());
+                $collection->save($ApproveRequest);
+            }
+            ///mongo end herer
             echo 1;
         }
     } else {

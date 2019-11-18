@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-
+<title> Change </title>
 <head>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="../css/login_signup.css">
@@ -87,7 +87,7 @@
 				success: function(result) {
 					if (result == 1) {
 						window.location.assign("../admin.php");
-						alert("every thing is fine");
+						alert("fine");
 					} else {
                         alert("not fine");
 						$(".loginAlert").html(result).show();

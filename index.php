@@ -4,9 +4,9 @@ include("tool/functions.php");
 ?>
 <style>
 	html {
-		background-image: url('image/front.jpg');
+		background-image: url('image/front1.jpg');
 		background-repeat: no-repeat;
-		background-size: 100% auto;
+		background-size: 100% 750px;
 	}
 </style>
 
@@ -48,6 +48,15 @@ include("tool/functions.php");
 					<a class="dropdown-item" id="oldAdeans" href="CCF/old.php?action=oldAdeans">Associate Deans</a>
 					<a class="dropdown-item" id="olddeans" href="CCF/old.php?action=olddeans">Deans</a>
 					<a class="dropdown-item" id="olddirectors" href="CCF/old.php?action=olddirectors">Directors</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="facultycurrentandold" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Faculty
+				</a>
+				<div class="dropdown-menu" aria-labelledby="DeptDropdown">
+					<a class="dropdown-item" id="currentfaculty" href="CCF/old.php?action=currentfaculty">Current</a>
+					<a class="dropdown-item" id="oldfaculty" href="CCF/old.php?action=oldfaculty">Previous</a>
 				</div>
 			</li>
 		</ul>

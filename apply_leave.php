@@ -6,7 +6,7 @@
 ?>
 <!DOCTYPE html>
 <html>
-
+<title> Apply Leave </title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -79,7 +79,10 @@
                 success: function(result) {
                     if (result == 1) {
                        alert("Successfully Applied");
-                    } else {
+                    } else if(result == -11){
+                        alert("Successfully applied but you have borrowed leave from future years");
+                    }
+                     else {
                         alert("Not Applied");
                     }
                 }

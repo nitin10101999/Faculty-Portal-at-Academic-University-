@@ -21,7 +21,8 @@ $collection = $database->leave_application;
 $query3 = array('LeaveId' => $Lid);
 //checking for existing user
 $leave_obj = $collection->findOne($query3);
-$message = $leave_obj['AppliedBy']['0']['message'];
+$iter = sizeof($leave_obj['AppliedBy']) - 1;
+$message = $leave_obj['AppliedBy'][$iter]['message'];
 
 ?>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -94,15 +95,23 @@ $message = $leave_obj['AppliedBy']['0']['message'];
         var fid = "<?php echo $Fid_applicant; ?>";
         var startdate = "<?php echo $startDate; ?>";
         var endDate = "<?php echo $endDate; ?>";
-        var avail = "<?php echo $Avail_leaves; ?>";
+        var avail = <?php echo $Avail_leaves; ?>;
         var Ltype = "<?php echo $Ltype; ?>";
+        var diff = <?php   $sd = strtotime($startDate);
+                            $ed = strtotime($endDate);
+                            $diff = (int) (($ed - $sd) / 60 / 60 / 24);
+                            echo $diff;
+                    ?>;
+        
+        if(diff>avail){
+            alert("This leave is borrowed from upcoming years available leaves");
+        }
         $("#reject").click(function() {
             $.ajax({
                 type: "POST",
                 url: "actionccf.php?action=reject",
                 data: "Lid=" + Lid + "&Fid=" + fid,
                 success: function(result) {
-                    alert(result);
                     if (result == 1) {
                         window.location.href = "ccf.php";
                     } else {
@@ -118,7 +127,6 @@ $message = $leave_obj['AppliedBy']['0']['message'];
                 url: "actionccf.php?action=comment",
                 data: "Lid=" + Lid + "&applicantid=" + fid +"&comment=" + $("#write_comment").val(),
                 success: function(result) {
-                    alert(result);
                     if (result == 1) {
                         window.location.href = "ccf.php";
                     } else {

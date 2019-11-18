@@ -77,8 +77,14 @@ if (!isset($_SESSION['email'])) {
 					<a class="dropdown-item" id="editdirector" href="register/change.php?action=changedirector">Edit</a>
 				</div>
 			</li>
-			<li class="nav-item ">
-				<a class="nav-link" id="addfaculty" href="register/registerfaculty.php">Add Faculty</a>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="faculty" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Faculty</a>
+				<div class="dropdown-menu" aria-labelledby="hod">
+					<a class="dropdown-item" id="addfaculty" href="register/registerfaculty.php">Add</a>
+					<a class="dropdown-item" id="addfaculty" href="register/removefaculty.php">Remove</a>
+					<a class="dropdown-item" id="renew" href="#">Renew</a>
+				</div>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="hierarchy" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,16 +102,16 @@ if (!isset($_SESSION['email'])) {
 </nav>
 <div class="container " style="padding-top:15%; padding-left:25%;">
 	<div class="row">
-	<div class="form-group col">
-		<input type="text" id="leaveId" class="form-control" placeholder="leaveId" value="">
-	</div>
-	<div class="form-group col">
-		<div class="row">
-			<div class="col-sm-2 col-sm-offset-3">
-				<button class="btn btn-primary"  id="findleaveInfo">Search</button>
+		<div class="form-group col">
+			<input type="text" id="leaveId" class="form-control" placeholder="leaveId" value="">
+		</div>
+		<div class="form-group col">
+			<div class="row">
+				<div class="col-sm-2 col-sm-offset-3">
+					<button class="btn btn-primary" id="findleaveInfo">Search</button>
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </div>
 <div id="reg"></div>
@@ -146,10 +152,24 @@ if (!isset($_SESSION['email'])) {
 			var val = $("#leaveId").val();
 			$.ajax({
 				type: "POST",
-				url: "findinfo.php",
-				data: "leaveId="+val,
+				url: "findInfo.php",
+				data: "leaveId=" + val,
 				success: function(result) {
 					$('#hierarchyshow').html(result);
+				}
+			})
+
+		});
+
+		$("#renew").click(function() {
+			$.ajax({
+				type: "POST",
+				url: "actions.php?action=renew",
+				data: "none",
+				success: function(result) {
+					if (result == 1) {
+						alert("done");
+					}
 				}
 			})
 

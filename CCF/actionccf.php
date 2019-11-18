@@ -29,7 +29,7 @@ if ($_GET['action'] == 'reject') {
     $rslt = mysqli_query($mySql_db, $qry);
     $rw = mysqli_fetch_assoc($rslt);
     $id = $rw['Fid'];
-    $q = "INSERT INTO pastrecord(leaveType,appovalDate,Fid,startDate,endDate,Lid)  VALUES('$Ltype','0000-00-00 00:00:00','$Fid_applicant','$sd','$ed','$lvid')";
+    $q = "INSERT INTO pastrecord(leaveType,approvalDate,Fid,startDate,endDate,Lid)  VALUES('$Ltype','0000-00-00 00:00:00','$Fid_applicant','$sd','$ed','$lvid')";
     mysqli_query($mySql_db, $q);
     /////Mongo db start here
     $myTimeZone = date_default_timezone_set("Asia/kolkata");
@@ -108,7 +108,8 @@ if ($_GET['action'] == 'reject') {
     $rw = mysqli_fetch_assoc($rslt);
     $id = $rw['Fid'];
     /////Mongo db start here
-    $today = date('Y-m-d H:i:s');;
+    $myTimeZone = date_default_timezone_set("Asia/kolkata");
+    $today = date('Y-m-d H:i:s');
     $collection = $database->leave_application;
     $query = array('LeaveId' => $Lid);
     $leave_obj = $collection->findOne($query);
@@ -140,10 +141,12 @@ if ($_GET['action'] == 'reject') {
         $res2 = mysqli_query($mySql_db, $query2);
         $myTimeZone = date_default_timezone_set("Asia/kolkata");
         $date = date('Y-m-d H:i:s');
-        $query3 = "INSERT INTO pastrecord(leaveType,appovalDate,Fid,startDate,endDate,Lid) VALUES('$Ltype','$date','$Fid_applicant','$startDate','$endDate','$Lid')";
+        $query3 = "INSERT INTO pastrecord(leaveType,approvalDate,Fid,startDate,endDate,Lid) VALUES('$Ltype','$date','$Fid_applicant','$startDate','$endDate','$Lid')";
         $res3 = mysqli_query($mySql_db, $query3);
         $query4 = "DELETE FROM leaveapplication WHERE Fid='$Fid_applicant'";
         $res4 = mysqli_query($mySql_db, $query4);
     }
     echo 1;
 }
+
+?>
